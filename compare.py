@@ -48,8 +48,8 @@ try:
     print(f'Image 2: {img2.size}')
 
     if img1.size != img2.size:
-        img2 = img2.resize(img1.size, Image.LANCZOS)
-        print(f'Resized image 2 to {img1.size}')
+        img1 = img1.resize(img2.size, Image.LANCZOS)
+        print(f'Resized image 1 to {img2.size}')
 
     if args.crop:
         x1, y1, x2, y2 = args.crop
@@ -66,7 +66,14 @@ try:
     print(f'Pixels with diff > 5: {int((diff > 5).sum())}')
     identical = (diff == 0).all(axis=2).sum()
     total = diff.shape[0] * diff.shape[1]
-    print(f'Similarity: {round(identical / total * 100, 2)}%')
+    pct = round(identical / total * 100, 2)
+    if pct == 100:
+        color = '\033[92m'  # green
+    elif pct >= 95:
+        color = '\033[93m'  # yellow
+    else:
+        color = '\033[91m'  # red
+    print(f'Similarity: {color}{pct}%\033[0m')
 
     out_dir = os.path.join(getattr(args, 'dir'), 'comparison')
     os.makedirs(out_dir, exist_ok=True)
