@@ -58,7 +58,7 @@ Saved results to hw1/comparison/
 
 ## Notes
 
-- If the two images have different dimensions, the second image is automatically resized to match the first.
+- If the two images have different dimensions, the first image is automatically resized to match the second.
 - Run `python compare.py` with no arguments to see the built-in help.
 
 ## Author
