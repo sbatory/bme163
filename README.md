@@ -38,7 +38,7 @@ Results will be saved to `hw1/comparison/`.
 
 ### Crop to a specific region
 
-Useful for comparing a single panel. For BME 163 assignments, `-crop 0 0 1400 1200` typically covers the left panel:
+Useful for comparing a single panel. For BME 163 assignments:
 
 ```
 python compare.py your_image.png example_image.png -dir hw1 -crop 0 0 1400 1200
